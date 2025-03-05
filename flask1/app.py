@@ -1,12 +1,11 @@
 from flask import Flask
+from library.routes import register_routes
 
-app = Flask(__name__)
+def create_app():
+    application = Flask(__name__)
+    register_routes(application)
+    return application
 
-
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
-
-
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app_instance = create_app()
+    app_instance.run(debug=True)
