@@ -19,6 +19,7 @@ def add_book(book: dict):
     new_book = copy.deepcopy(book)
     new_book["id"] = max(book["id"] for book in books_data) + 1 if books_data else 1
     books_data.append(new_book)
+    return new_book
 
 def delete_book(book_id: int):
     global books_data

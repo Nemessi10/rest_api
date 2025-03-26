@@ -11,7 +11,6 @@ def validate_non_empty_string(value):
         raise ValidationError("Field cannot be empty or contain only spaces")
 
 class BookSchema(Schema):
-    id = fields.Integer(dump_only=True)
     title = fields.String(required=True, validate=validate_non_empty_string,
                           error_messages={"required": "Title is required"})
     author = fields.String(required=True, validate=validate_non_empty_string,
